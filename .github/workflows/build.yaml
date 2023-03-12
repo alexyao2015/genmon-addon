@@ -25,7 +25,7 @@ jobs:
             | awk '/sha/{print $4;exit}' FS='[""]')
           GENMON_VERSION_LAST_BUILT="$(jq '.version' genmon/config.json --raw-output)"
 
-          if [ $GENMON_VERSION_LATEST == $GENMON_VERSION_LAST_BUILT ]; then
+          if [ $GENMON_VERSION_LATEST == "" ] || [ $GENMON_VERSION_LATEST == $GENMON_VERSION_LAST_BUILT ]; then
             NEED_BUILD=false
           else
             NEED_BUILD=true
