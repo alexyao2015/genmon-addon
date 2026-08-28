@@ -93,7 +93,7 @@ jobs:
           set -x
           docker save ci:${{ github.run_number }} | gzip > ci-${{ github.run_number }}.tar.gz
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: ci-${{ github.run_number }}
           path: ci-${{ github.run_number }}.tar.gz
